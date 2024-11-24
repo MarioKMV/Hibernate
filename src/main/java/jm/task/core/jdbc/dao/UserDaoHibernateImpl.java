@@ -17,11 +17,14 @@ public class UserDaoHibernateImpl implements UserDao {
     public void createUsersTable() {
         try (Session session = Util.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            session.createNativeQuery("CREATE TABLE IF NOT EXISTS users (" +
-                    "id SERIAL PRIMARY KEY, " +
-                    "name VARCHAR(50), " +
-                    "lastName VARCHAR(50), " +
-                    "age SMALLINT)").executeUpdate();
+            session.createNativeQuery( """
+                            
+                    CREATE TABLE IF NOT EXISTS users (
+                    id SERIAL PRIMARY KEY,
+                    name VARCHAR(50),
+                    lastName VARCHAR(50),
+                    age SMALLINT)""")
+                    .executeUpdate();
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();

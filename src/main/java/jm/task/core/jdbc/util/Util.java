@@ -12,7 +12,7 @@ public class Util {
     // реализуйте настройку соеденения с БД
     private static final String URL = "jdbc:postgresql://localhost:5432/postgres";
     private static final String USER = "postgres";
-    private static final String PASSWORD = "123";
+    private static final String PASSWORD = "postgres";
 
     public static SessionFactory sessionFactory;
 
